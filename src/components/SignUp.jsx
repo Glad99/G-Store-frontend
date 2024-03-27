@@ -39,7 +39,7 @@ const SignUp = () => {
   }
 
   const handleUploadProfileImage = async (e) =>{
-    // console.log(e.target.files[0]);
+
     const data = await ImagetoBase64((e.target.files[0]))
     console.log(data);
 
@@ -51,6 +51,7 @@ const SignUp = () => {
     })
   }
   console.log(import.meta.env.VITE_SERVER_DOMIN);
+
   const handleSubmit = async(e)=>{
     e.preventDefault();
     const {name, email, password, confirmPassword} = data
@@ -67,7 +68,7 @@ const SignUp = () => {
       const dataRes = await fetchData.json()
       console.log(dataRes);
       alert("successfully!")
-      // navigate("/login")
+      navigate("/login")
     }
     else{
       alert("password and confirm password not equal")
