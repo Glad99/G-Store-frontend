@@ -18,7 +18,6 @@ const LogIn = () => {
   const navigate = useNavigate()
   
   const userData = useSelector(state =>state)
-  console.log(userData.user);
 
   const dispatch = useDispatch()
 
@@ -53,7 +52,7 @@ const LogIn = () => {
       const dataRes = await fetchData.json()
       console.log(dataRes);
       // alert("successfull")
-      toast("successfull!")
+      toast(dataRes.message)
 
       if(dataRes.alert){
         dispatch(loginRedux(dataRes))
@@ -61,6 +60,7 @@ const LogIn = () => {
           navigate("/")
         }, 1000)
       }
+      console.log(userData);
     }
 
     else{
@@ -98,7 +98,7 @@ const LogIn = () => {
           </div>
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-[#D96846] text-white">Login</button>
+          <button className="btn bg-[#d96846] text-white">Login</button>
         </div>
         <div className="form-control mt-2">
           <button className="btn bg-gray">Log in with Google</button>

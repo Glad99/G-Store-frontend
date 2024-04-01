@@ -133,7 +133,7 @@ const SignUp = () => {
           </div>
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-[#D96846] text-white">Create Account</button>
+          <button className="btn bg-[#d96846] text-white">Create Account</button>
         </div>
         <div className="form-control mt-2">
           <button className="btn bg-gray">Sign up with Google</button>

@@ -8,6 +8,7 @@ import About from './components/About';
 import SignUp from './components/SignUp';
 import LogIn from './components/LogIn';
 import toast, { Toaster } from 'react-hot-toast';
+import NewProduct from './pages/NewProduct';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/signup' element={<SignUp/>}
         ></Route>
         <Route path='/login' element={<LogIn/>}></Route>
+        <Route path='/newproduct' element={<NewProduct/>}></Route>
       </Routes>
     </div>
   );
