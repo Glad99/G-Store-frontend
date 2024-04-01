@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { BiShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { loginRedux } from "../redux/userSlice";
 
 
 const LogIn = () => {
@@ -11,7 +15,12 @@ const LogIn = () => {
     email: "",
     password : "",
   })
-  console.log(data);
+  const navigate = useNavigate()
+  
+  const userData = useSelector(state =>state)
+  console.log(userData.user);
+
+  const dispatch = useDispatch()
 
   const handleShowPassword = ()=> {
     setShowPassword(prev => !prev)
@@ -29,11 +38,29 @@ const LogIn = () => {
     })
   }
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = async(e)=>{
     e.preventDefault()
     const {email, password} = data
     if(email && password){
-      alert("successfully!")
+      const fetchData = await fetch(`${import.meta.env.VITE_SERVER_DOMIN}/login`, {
+        method : "POST",
+        headers : {
+          "content-type" : "application/json"
+        },
+        body : JSON.stringify(data)
+      })
+      
+      const dataRes = await fetchData.json()
+      console.log(dataRes);
+      // alert("successfull")
+      toast("successfull!")
+
+      if(dataRes.alert){
+        dispatch(loginRedux(dataRes))
+        setTimeout(()=>{
+          navigate("/")
+        }, 1000)
+      }
     }
 
     else{
