@@ -19,7 +19,7 @@ const navItems = [
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const userData = useSelector((state)=>state.user)
-  console.log(userData);
+  console.log(userData.email);
   const dispatch = useDispatch()
 const handleShowMenu = ()=>{
   setShowMenu(prev=>!prev)
@@ -28,8 +28,9 @@ const handleShowMenu = ()=>{
 const handleLogout = ()=>{
 dispatch(logoutRedux())
 toast("Logout successfully!")
-
 }
+
+console.log(import.meta.env.VITE_ADMIN_EMAIL);
   return (
     <header className="flex fixed w-full h-16 md:px-4 shadow-md items-center justify-center bg-white z-50 ">
       <div className="flex items-center h-full gap-12 w-full justify-between p-5">
@@ -61,7 +62,7 @@ toast("Logout successfully!")
             </li>
           ))}
         </ul>
-        <div className="relative flex">
+        <div className="relative hidden lg:flex">
           <input
             type="text"
             placeholder="Search here"
@@ -81,9 +82,12 @@ toast("Logout successfully!")
             {userData.image ? <img src={userData.image} className="h-full w-full"/> : <FaUserCircle className="size-8" />}
           </div>
           {showMenu && (
-            <div className="absolute right-2 bg-whitepy-2 px-2 shadow drop-shadow-md flex flex-col">
-              <Link to={"newproduct"} className="whitespace-nowrap cursor-pointer px-2">New Product</Link>
-              {userData.image ? <p className="cursor-pointer text-white px-2 bg-red-500 " onClick={handleLogout}>Logout</p> : <Link to={"login"} className="whitespace-nowrap cursor-pointer px-2 ">Login</Link>
+            <div className="absolute right-2 bg-whitepy-2 shadow drop-shadow-md flex flex-col">
+              {
+                userData.email === import.meta.env.VITE_ADMIN_EMAIL && <Link to={"newproduct"} className="whitespace-nowrap cursor-pointer px-2">New Product</Link>
+              }
+              
+              {userData.image ? <p className="cursor-pointer text-white px-2 mb-2 bg-red-500 " onClick={handleLogout}>Logout [{userData.name}]</p> : <Link to={"login"} className="whitespace-nowrap cursor-pointer px-2 ">Login</Link>
             }
             </div>
           )

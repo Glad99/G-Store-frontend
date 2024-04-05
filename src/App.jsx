@@ -2,16 +2,32 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css'
 import Navbar from './components/Navbar';
-import Home from './components/Home';
+import Home from './pages/Home';
 import Contact from './components/Contact';
 import About from './components/About';
 import SignUp from './components/SignUp';
 import LogIn from './components/LogIn';
 import toast, { Toaster } from 'react-hot-toast';
 import NewProduct from './pages/NewProduct';
+import { useEffect } from 'react';
+import {setDataProduct} from './redux/productSlice'
+import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
+  const dispatch = useDispatch()
+  const productData = useSelector((state)=>state.product)
+  
 
+  useEffect(()=>{
+    (async()=>{
+      const res = await fetch(`${import.meta.env.VITE_SERVER_DOMIN}/product`)
+      const resData = await res.json()
+      console.log(resData);
+      dispatch(setDataProduct(resData))
+    })()
+  }, [])
+
+  console.log(productData);
   return (
     <div>
       <Toaster />
