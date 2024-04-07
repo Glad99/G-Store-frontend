@@ -39,14 +39,16 @@ console.log(import.meta.env.VITE_ADMIN_EMAIL);
         </div>
         <div>
           <label className="form-control">
-            <select className="select ">
-              <option disabled>Categories</option>
-              <option>Women's Fashion</option>
-              <option>Men's</option>
-              <option>Electronics</option>
-              <option>Homes & Lifestyle</option>
-              <option>Health & Beauty</option>
-              <option>Kids</option>
+            <select className="select border-none">
+              <option value={"other"}>Category</option>
+              <option value={"women"}>Women's Fashion</option>
+              <option value={"men"}>Men's Fashion</option>
+              <option value={"electronics"}>Electronics</option>
+              <option value={"homes"}>Homes & Lifestyle</option>
+              <option value={"Medicine"}>Medicine</option>
+              <option value={"health and beauty"}>Health & Beauty</option>
+              <option value={"kids and toys"}>Babies, Kids & Toys</option>
+              <option value={"Groceries and pets"}>Groceries & Pets</option>
             </select>
           </label>
         </div>
