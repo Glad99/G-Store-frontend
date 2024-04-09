@@ -36,7 +36,7 @@ const Home = () => {
           </div>
           <div className="">Arrow react icon</div>
         </div>
-        <div>
+        <div className="flex">
           {
             flashSales.map((el) =>{
               return(
