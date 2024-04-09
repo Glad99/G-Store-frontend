@@ -10,7 +10,7 @@ const Home = () => {
   console.log(flashSales);
   return (
     <div className=' '>
-      <div className="flex gap-5  w-full h-screen px-20 bg-slate-50 justify-center items-center pt-10  ">
+      <div className="flex gap-5  w-full h-screen px-10 md:px-20 lg:px-20 bg-slate-50 justify-center items-center pt-10  ">
         <div className="relative container  ">
           <h2 className="text-2xl lg:text-4xl font-bold max-w-[35rem] ">Explore High-Quality <span className="text-[#d96846] ">Products Flawless</span> Shopping Experience</h2>
           <p className="text-gray-900 tracking-wide my-10 max-w-[33rem] text-l font-medium  ">Welcome to G-Store, your go-to for premium products. Dive into our curated selection of high-quality items across categories like electronics and fashion. Enjoy easy shopping with our intuitive interface and secure checkout. Elevate your online experience with us!</p>
