@@ -2,12 +2,25 @@ import {Link} from "react-router-dom"
 import { MdOutlineLocalOffer } from "react-icons/md";
 import CardFeature from "../components/CardFeature";
 import {useSelector} from "react-redux"
+import { TiArrowLeft } from "react-icons/ti";
+import { TiArrowRight } from "react-icons/ti";
+import { useRef } from "react";
 
 const Home = () => {
   const productData = useSelector((state) =>state.product.productList)
   console.log(productData) 
   const flashSales = productData.filter(el => el.category === "homes")
   console.log(flashSales);
+
+  const loadingArrayFeature = new Array(10).fill(null);
+
+  const slideProductRef = useRef()
+  const nextProduct = ()=>{
+    slideProductRef.current.scrollLeft += 20
+  }
+  const prevProduct = ()=>{
+
+  }
   return (
     <div className=' '>
       <div className="flex gap-5  w-full h-screen px-10 md:px-20 lg:px-20 bg-slate-50 justify-center items-center pt-10  ">
@@ -15,8 +28,8 @@ const Home = () => {
           <h2 className="text-2xl lg:text-4xl font-bold max-w-[35rem] ">Explore High-Quality <span className="text-[#d96846] ">Products Flawless</span> Shopping Experience</h2>
           <p className="text-gray-900 tracking-wide my-10 max-w-[33rem] text-l font-medium  ">Welcome to G-Store, your go-to for premium products. Dive into our curated selection of high-quality items across categories like electronics and fashion. Enjoy easy shopping with our intuitive interface and secure checkout. Elevate your online experience with us!</p>
           <div className="flex gap-5">
-          <Link to={'/'} className="bg-slate-800   text-white rounded-full p-2 font-normal lg:font-medium px-5 flex items-center">Shop Now</Link>
-          <Link to={'/'} className="bg-slate-200 text-gray-700 font-normal lg:font-medium  rounded-full pl-5 flex items-center gap-5 ">Offers <MdOutlineLocalOffer className="text-xl bg-[#d96846] rounded-full h-12 w-12 p-3 rotate-90 border border-dashed transition-all duration-500 group-hover:rotate-45"/></Link>
+          <Link to={'/'} className="bg-slate-800   text-white rounded-full p-2 font-medium px-5 flex items-center">Shop Now</Link>
+          <Link to={'/'} className="bg-slate-200 text-gray-700 font-medium  rounded-full pl-5 flex items-center gap-5 ">Offers <MdOutlineLocalOffer className="text-xl bg-[#d96846] rounded-full h-12 w-12 p-3 rotate-90 border border-dashed transition-all duration-500 group-hover:rotate-45"/></Link>
 
         </div>
         </div>
@@ -29,16 +42,19 @@ const Home = () => {
           <div className="w-3 h-6 bg-[#d96846] rounded-sm"></div>
           <p className="text-[#d96846] font-semibold">Today's</p>
         </div>
-        <div className="flex justify-between items-center pb-3">
+        <div className="flex justify-between items-center pb-5">
           <div className="flex gap-10 items-center">
-            <h3 className="text-2xl font-semibold">Flash Sales</h3>
+            <h3 className="text-2xl font-semibold text-slate-900 ">Flash Sales</h3>
           <div>Time & date</div>
           </div>
-          <div className="">Arrow react icon</div>
+          <div className="flex items-center gap-2 overflow-scroll scrollbar-none" ref={slideProductRef}>
+          <div className="bg-slate-100 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900" onClick={prevProduct}><TiArrowLeft/></div>
+            <div className="bg-slate-100 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900" onClick={nextProduct}><TiArrowRight /></div>
+          </div>
         </div>
-        <div className="flex">
+        <div className="flex gap-7">
           {
-            flashSales.map((el) =>{
+            flashSales[0] ? flashSales.map((el) =>{
               return(
                 <CardFeature key={el._id}
                 name={el.name}
@@ -48,13 +64,15 @@ const Home = () => {
                 />
               )
             })
+            :
+            loadingArrayFeature.map((el, i) => <CardFeature  key={i} loading="Loading..."/>)
           }
           
         </div>
         <div className="flex justify-center items-center">
-          <button className="bg-[#d96846] text-white text-sm px-6 py-2 rounded-sm mb-8 mt-5">View all Products</button>
+          <button className="bg-[#d96846] text-white text-sm px-6 py-2 rounded-sm mb-5 mt-12">View all Products</button>
         </div>
-        <hr className="text-slate-800 font-medium mt-5 mb-5 w-auto" />
+        <hr className="text-slate-800 font-medium mt-4 mb-5 w-auto" />
       </div>
       <div className="px-20">
         <div className="flex gap-2 items-center py-5">
