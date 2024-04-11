@@ -16,10 +16,10 @@ const Home = () => {
 
   const slideProductRef = useRef()
   const nextProduct = ()=>{
-    slideProductRef.current.scrollLeft += 20
+    slideProductRef.current.scrollLeft += 200
   }
   const prevProduct = ()=>{
-
+    slideProductRef.current.scrollLeft -= 200
   }
   return (
     <div className=' '>
@@ -47,12 +47,12 @@ const Home = () => {
             <h3 className="text-2xl font-semibold text-slate-900 ">Flash Sales</h3>
           <div>Time & date</div>
           </div>
-          <div className="flex items-center gap-2 overflow-scroll scrollbar-none" ref={slideProductRef}>
+          <div className="flex items-center gap-2 ">
           <div className="bg-slate-100 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900" onClick={prevProduct}><TiArrowLeft/></div>
             <div className="bg-slate-100 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900" onClick={nextProduct}><TiArrowRight /></div>
           </div>
         </div>
-        <div className="flex gap-7">
+        <div className="flex gap-7 overflow-scroll  scrollbar-none scroll-smooth transition-all" ref={slideProductRef}>
           {
             flashSales[0] ? flashSales.map((el) =>{
               return(

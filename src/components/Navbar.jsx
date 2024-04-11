@@ -11,9 +11,8 @@ import {toast} from "react-hot-toast"
 
 const navItems = [
   { name: "Home", path: "/" },
-  { name: "Contact us", path: "/contact" },
   { name: "About", path: "/about" },
-  { name: "Sign Up", path: "/signup" },
+  { name: "Contact us", path: "/contact" },
 ];
 
 const Navbar = () => {
@@ -37,7 +36,7 @@ console.log(import.meta.env.VITE_ADMIN_EMAIL);
         <div className="h-12 ">
           <img src={logo} alt="" className=" h-full " />
         </div>
-        <div>
+        <div className="hidden lg:flex">
           <label className="form-control">
             <select className="select border-none">
               <option value={"other"}>Category</option>
@@ -52,19 +51,21 @@ console.log(import.meta.env.VITE_ADMIN_EMAIL);
             </select>
           </label>
         </div>
-        <ul className="flex items-center gap-4 md:gap-6 lg:gap-12  text-[gray] text-[15px] font-[500]">
+        <ul className="hidden items-center gap-4 md:gap-6 lg:gap-12  text-[gray] text-[15px] font-[500] lg:flex">
           {navItems.map((nav, idx) => (
-            <li key={idx} style={{ marginLeft: "20px" }}>
+            <li key={idx}>
               <Link
-                style={{ textDecoration: "none", color: "grey" }}
                 to={nav.path}
               >
                 {nav.name}
               </Link>
             </li>
           ))}
+          <li><Link to={"signup"}>
+                Sign Up
+              </Link></li>
         </ul>
-        <div className="relative hidden lg:flex">
+        <div className="relative flex">
           <input
             type="text"
             placeholder="Search here"
@@ -84,13 +85,24 @@ console.log(import.meta.env.VITE_ADMIN_EMAIL);
             {userData.image ? <img src={userData.image} className="h-full w-full"/> : <FaUserCircle className="size-8" />}
           </div>
           {showMenu && (
-            <div className="absolute right-2 bg-whitepy-2 shadow drop-shadow-md flex flex-col">
+            <div className="absolute right-2 bg-white py-2 shadow drop-shadow-md flex flex-col min-w-[120px] text-center">
               {
                 userData.email === import.meta.env.VITE_ADMIN_EMAIL && <Link to={"newproduct"} className="whitespace-nowrap cursor-pointer px-2">New Product</Link>
               }
               
-              {userData.image ? <p className="cursor-pointer text-white px-2 mb-2 bg-red-500 " onClick={handleLogout}>Logout [{userData.name}]</p> : <Link to={"login"} className="whitespace-nowrap cursor-pointer px-2 ">Login</Link>
-            }
+              {userData.image ? <p className="cursor-pointer text-white px-2 mb-2 bg-red-500 text-[15px] font-[500]" onClick={handleLogout}>Logout [{userData.name}]</p> : (<Link to={"login"} className="whitespace-nowrap cursor-pointer px-2 text-[gray] text-[15px] font-[500] ">Login</Link>
+            )}
+            <ul className="flex flex-col lg:hidden lg:gap-12 gap-2 mt-2  text-[gray] text-[15px] font-[500]">
+          {navItems.map((nav, idx) => (
+            <li key={idx}>
+              <Link className="px-2 py-1"
+                to={nav.path}
+              >
+                {nav.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
             </div>
           )
 
