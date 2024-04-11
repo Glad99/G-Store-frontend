@@ -45,9 +45,9 @@ console.log(import.meta.env.VITE_ADMIN_EMAIL);
               <option value={"electronics"}>Electronics</option>
               <option value={"homes"}>Homes & Lifestyle</option>
               <option value={"Medicine"}>Medicine</option>
-              <option value={"health and beauty"}>Health & Beauty</option>
-              <option value={"kids and toys"}>Babies, Kids & Toys</option>
-              <option value={"Groceries and pets"}>Groceries & Pets</option>
+              <option value={"health"}>Health & Beauty</option>
+              <option value={"kids"}>Babies, Kids & Toys</option>
+              <option value={"Groceries"}>Groceries & Pets</option>
             </select>
           </label>
         </div>
