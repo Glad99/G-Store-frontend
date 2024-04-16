@@ -4,14 +4,19 @@ import CardFeature from "../components/CardFeature";
 import {useSelector} from "react-redux"
 import { TiArrowLeft } from "react-icons/ti";
 import { TiArrowRight } from "react-icons/ti";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import FilterProduct from "../components/FilterProduct";
+import { FaChevronRight } from "react-icons/fa6";
+import { FaChevronLeft } from "react-icons/fa6";
 
 const Home = () => {
   const productData = useSelector((state) =>state.product.productList)
   console.log(productData) 
+
   const flashSales = productData.filter(el => el.category === "electronics")
   console.log(flashSales);
+
+
 
   const loadingArrayFeature = new Array(10).fill(null);
 
@@ -30,12 +35,36 @@ const Home = () => {
     slideCategoryRef.current.scrollLeft -= 200
   }
 
+  const scrollElement = useRef()
+  const scrollRight = ()=>{
+    scrollElement.current.scrollLeft += 200
+  }
+  const scrollLeft = ()=>{
+    scrollElement.current.scrollLeft -= 200
+  }
+
   const categoryList = [...new Set( productData.map(el=>el.category))]
   console.log(categoryList);
 
+  //filterData display
+  const [filterby, setFilterby] = useState("")
+  const [dataFilter, setDataFilter] = useState(productData
+  )
+
+  useEffect(()=>{
+    setDataFilter(productData)
+  }, [productData])
+
+  const handleFilterProduct = (category)=>{
+    const filter = productData.filter(el=> el.category.toLowerCase() === category.toLowerCase())
+    setDataFilter(()=>{
+      return[...filter]
+    })
+  }
+
   return (
     <div className=' '>
-      <div className="flex gap-5  w-full h-screen px-10 md:px-20 lg:px-20 bg-slate-50 justify-center items-center pt-10  ">
+      <div className="flex gap-5  w-full h-screen px-10 md:px-20 lg:px-20 bg-gradient-to-b from-slate-50 from-90%  justify-center items-center pt-10  ">
         <div className="relative container  ">
           <h2 className="text-2xl lg:text-4xl font-bold max-w-[35rem] ">Explore High-Quality <span className="text-[#d96846] ">Products Flawless</span> Shopping Experience</h2>
           <p className="text-gray-900 tracking-wide my-10 max-w-[33rem] text-l font-medium  ">Welcome to G-Store, your go-to for premium products. Dive into our curated selection of high-quality items across categories like electronics and fashion. Enjoy easy shopping with our intuitive interface and secure checkout. Elevate your online experience with us!</p>
@@ -46,7 +75,7 @@ const Home = () => {
         </div>
         </div>
         <div className=" ">
-        <img src="/cart_home.jpg" alt="" className="hidden md:flex md:w-[20rem] lg:flex lg:w-[30rem] transform scale-x-[-1] " />
+        <img src="/cart_home.jpg" alt="" className="hidden md:flex md:w-[20rem] lg:flex lg:w-[30rem] transform scale-x-[-1] mix-blend-multiply " />
         </div>
       </div>
       <div className="px-20">
@@ -70,6 +99,7 @@ const Home = () => {
               return(
                 <CardFeature key={el._id}
                 name={el.name}
+                id={el._id}
                 category={el.category}
                 price={el.price}
                 image={el.image}
@@ -82,7 +112,7 @@ const Home = () => {
           
         </div>
         <div className="flex justify-center items-center">
-          <button className="bg-[#d96846] text-white text-sm px-6 py-2 rounded-sm mb-5 mt-12">View all Products</button>
+          <button className="bg-[#d96846] text-white text-sm px-6 py-2 rounded-sm mb-5 mt-5">View all Products</button>
         </div>
         <hr className="text-slate-800 font-medium mt-4 mb-5 w-auto" />
       </div>
@@ -104,10 +134,32 @@ const Home = () => {
           {
             categoryList[0] && categoryList.map((el, i) =>{
               return(
-                <FilterProduct key={i} category={el}/>
+                <FilterProduct key={i} category={el} onClick={()=>handleFilterProduct(el)}/>
               )
             })
           }
+         </div>
+         <div className="relative">
+         <div className="flex justify-center gap-7 overflow-scroll  scrollbar-none scroll-smooth transition-all" ref={scrollElement}>
+         <div className="flex items-center gap-2 justify-between ">
+          <div className="bg-slate-300 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900 absolute left-0 top-28 z-10 md:block" onClick={scrollLeft}><FaChevronLeft /></div>
+            <div className="bg-slate-300 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900 absolute right-0 top-28 z-10 md:block  " onClick={scrollRight}><FaChevronRight /></div>
+          </div>
+         
+          {
+          dataFilter[0] && dataFilter.map(el => {
+            return(
+              <CardFeature key={el._id}
+              id={el._id}
+              image={el.image}
+              name={el.name}
+              price={el.price}
+              category={el.category}
+              />
+            )
+          })
+          }
+         </div>
          </div>
         <hr className="text-slate-800 font-medium mt-5 mb-5 w-auto" />
       </div>

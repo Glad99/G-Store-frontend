@@ -13,6 +13,7 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Contact us", path: "/contact" },
+  { name: "Product", path: "/product/660d5bbaa88ad19a0721946c" },
 ];
 
 const Navbar = () => {
@@ -44,10 +45,10 @@ console.log(import.meta.env.VITE_ADMIN_EMAIL);
               <option value={"men"}>Men's Fashion</option>
               <option value={"electronics"}>Electronics</option>
               <option value={"homes"}>Homes & Lifestyle</option>
-              <option value={"Medicine"}>Medicine</option>
+              <option value={"medicine"}>Medicine</option>
               <option value={"health"}>Health & Beauty</option>
               <option value={"kids"}>Babies, Kids & Toys</option>
-              <option value={"Groceries"}>Groceries & Pets</option>
+              <option value={"groceries"}>Groceries & Pets</option>
             </select>
           </label>
         </div>

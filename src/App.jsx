@@ -12,6 +12,8 @@ import NewProduct from './pages/NewProduct';
 import { useEffect } from 'react';
 import {setDataProduct} from './redux/productSlice'
 import { useDispatch, useSelector } from 'react-redux';
+import ProductDetails from './pages/ProductDetails';
+
 
 function App() {
   const dispatch = useDispatch()
@@ -40,6 +42,7 @@ function App() {
         ></Route>
         <Route path='/login' element={<LogIn/>}></Route>
         <Route path='/newproduct' element={<NewProduct/>}></Route>
+        <Route path='/product/:productId' element={<ProductDetails/>}></Route>
       </Routes>
     </div>
   );
