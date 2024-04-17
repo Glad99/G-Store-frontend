@@ -6,8 +6,9 @@ import { TiArrowLeft } from "react-icons/ti";
 import { TiArrowRight } from "react-icons/ti";
 import { useEffect, useRef, useState } from "react";
 import FilterProduct from "../components/FilterProduct";
-import { FaChevronRight } from "react-icons/fa6";
-import { FaChevronLeft } from "react-icons/fa6";
+
+import AllProduct from "../components/AllProduct";
+import Categories from "../components/Categories";
 
 const Home = () => {
   const productData = useSelector((state) =>state.product.productList)
@@ -27,40 +28,11 @@ const Home = () => {
   const prevProduct = ()=>{
     slideProductRef.current.scrollLeft -= 200
   }
-  const slideCategoryRef = useRef()
-  const nextCategory = ()=>{
-    slideCategoryRef.current.scrollLeft += 200
-  }
-  const prevCategory = ()=>{
-    slideCategoryRef.current.scrollLeft -= 200
-  }
+  
 
-  const scrollElement = useRef()
-  const scrollRight = ()=>{
-    scrollElement.current.scrollLeft += 200
-  }
-  const scrollLeft = ()=>{
-    scrollElement.current.scrollLeft -= 200
-  }
+  
 
-  const categoryList = [...new Set( productData.map(el=>el.category))]
-  console.log(categoryList);
-
-  //filterData display
-  const [filterby, setFilterby] = useState("")
-  const [dataFilter, setDataFilter] = useState(productData
-  )
-
-  useEffect(()=>{
-    setDataFilter(productData)
-  }, [productData])
-
-  const handleFilterProduct = (category)=>{
-    const filter = productData.filter(el=> el.category.toLowerCase() === category.toLowerCase())
-    setDataFilter(()=>{
-      return[...filter]
-    })
-  }
+ 
 
   return (
     <div className=' '>
@@ -78,7 +50,7 @@ const Home = () => {
         <img src="/cart_home.jpg" alt="" className="hidden md:flex md:w-[20rem] lg:flex lg:w-[30rem] transform scale-x-[-1] mix-blend-multiply " />
         </div>
       </div>
-      <div className="px-20">
+      <div className="px-10 md:px-20">
         <div className="flex gap-2 items-center py-5">
           <div className="w-3 h-6 bg-[#d96846] rounded-sm"></div>
           <p className="text-[#d96846] font-semibold">Today's</p>
@@ -93,7 +65,7 @@ const Home = () => {
             <div className="bg-slate-100 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900" onClick={nextProduct}><TiArrowRight /></div>
           </div>
         </div>
-        <div className="flex gap-7 overflow-scroll  scrollbar-none scroll-smooth transition-all" ref={slideProductRef}>
+        <div className="flex pl-1 pt-1 gap-7 overflow-scroll  scrollbar-none scroll-smooth transition-all" ref={slideProductRef}>
           {
             flashSales[0] ? flashSales.map((el) =>{
               return(
@@ -116,53 +88,8 @@ const Home = () => {
         </div>
         <hr className="text-slate-800 font-medium mt-4 mb-5 w-auto" />
       </div>
-      <div className="px-20">
-        <div className="flex gap-2 items-center py-5">
-          <div className="w-3 h-6 bg-[#d96846] rounded-sm"></div>
-          <p className="text-[#d96846] font-semibold">Categories</p>
-        </div>
-        <div className="flex justify-between items-center">
-        <h3 className="text-2xl font-semibold">Browse By Category</h3>
-          <div className="">
-          <div className="flex items-center gap-2 ">
-          <div className="bg-slate-100 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900" onClick={prevCategory}><TiArrowLeft/></div>
-            <div className="bg-slate-100 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900" onClick={nextCategory}><TiArrowRight /></div>
-          </div>
-          </div>
-        </div>
-        <div className="flex gap-7 overflow-scroll  scrollbar-none scroll-smooth transition-all py-12" ref={slideCategoryRef} >
-          {
-            categoryList[0] && categoryList.map((el, i) =>{
-              return(
-                <FilterProduct key={i} category={el} onClick={()=>handleFilterProduct(el)}/>
-              )
-            })
-          }
-         </div>
-         <div className="relative">
-         <div className="flex justify-center gap-7 overflow-scroll  scrollbar-none scroll-smooth transition-all" ref={scrollElement}>
-         <div className="flex items-center gap-2 justify-between ">
-          <div className="bg-slate-300 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900 absolute left-0 top-28 z-10 md:block" onClick={scrollLeft}><FaChevronLeft /></div>
-            <div className="bg-slate-300 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900 absolute right-0 top-28 z-10 md:block  " onClick={scrollRight}><FaChevronRight /></div>
-          </div>
-         
-          {
-          dataFilter[0] && dataFilter.map(el => {
-            return(
-              <CardFeature key={el._id}
-              id={el._id}
-              image={el.image}
-              name={el.name}
-              price={el.price}
-              category={el.category}
-              />
-            )
-          })
-          }
-         </div>
-         </div>
-        <hr className="text-slate-800 font-medium mt-5 mb-5 w-auto" />
-      </div>
+      <Categories/>
+      <AllProduct/>
       {/* <div className="px-20">
         <div className="flex gap-2 items-center py-5">
           <div className="w-3 h-6 bg-[#d96846] rounded-sm"></div>
