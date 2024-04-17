@@ -44,6 +44,9 @@ const Categories = () => {
        return[...filter]
      })
    }
+
+   const loadingArrayFeature = new Array(10).fill(null);
+
   return (
     <div><div className="px-10 md:px-20">
     <div className="flex gap-2 items-center py-5">
@@ -76,7 +79,7 @@ const Categories = () => {
       </div>
      
       {
-      dataFilter[0] && dataFilter.map(el => {
+      dataFilter[0] ? dataFilter.map(el => {
         return(
           <CardFeature key={el._id}
           id={el._id}
@@ -87,6 +90,8 @@ const Categories = () => {
           />
         )
       })
+      :
+            loadingArrayFeature.map((el, i) => <CardFeature  key={i} loading="Loading..."/>)
       }
      </div>
      </div>

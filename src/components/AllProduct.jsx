@@ -25,6 +25,8 @@ const AllProduct = () => {
   const prevCategory = ()=>{
     slideCategoryRef.current.scrollLeft -= 200
   }
+
+  const loadingArrayFeature = new Array(10).fill(null);
  
   return (
     <div><div className="px-10 md:pl-20">
@@ -43,7 +45,7 @@ const AllProduct = () => {
     </div>
     <div className="flex pl-1 md:flex-wrap gap-7 overflow-scroll  scrollbar-none scroll-smooth transition-all py-12" ref={slideCategoryRef} >
       {
-        productData && productData.map((el, i) =>{
+        productData[0] ? productData.map((el, i) =>{
           return(
           <CardFeature key={i}
           id={el._id}
@@ -54,6 +56,8 @@ const AllProduct = () => {
          />
         )
       })
+      :
+            loadingArrayFeature.map((el, i) => <CardFeature  key={i} loading="Loading..."/>)
       }
      </div>
      </div>
