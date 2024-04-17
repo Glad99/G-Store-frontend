@@ -66,15 +66,16 @@ console.log(import.meta.env.VITE_ADMIN_EMAIL);
                 Sign Up
               </Link></li>
         </ul>
-        <div className="relative flex">
+        <div className="relative md:flex hidden">
           <input
             type="text"
             placeholder="Search here"
-            className="border-b border-2 p-1 rounded "
+            className="border-b border-2 p-1 rounded"
           />
           <IoSearchOutline className="absolute top-2 right-1" />
         </div>
         <div className="flex gap-10 justify-center items-center">
+        <IoSearchOutline className="md:hidden size-5 flex items-center justify-center" />
           <div className="flex items-center gap-[45px] size-7 relative">
             <img src={cart_icon} alt="" />
             <div className="size-[15px] bottom-4 left-4 flex justify-center items-center bg-red-500 rounded-3xl text-white absolute ">
