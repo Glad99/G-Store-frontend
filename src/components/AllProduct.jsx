@@ -37,7 +37,7 @@ const AllProduct = () => {
     <div className="flex justify-between items-center">
     <h3 className="text-2xl font-semibold">Explore Our Products</h3>
       <div className="">
-      <div className="flex items-center gap-2 md:pr-20 ">
+      <div className="flex items-center gap-2 md:pr-12 ">
       <div className="bg-slate-100 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900" onClick={prevCategory}><TiArrowLeft/></div>
         <div className="bg-slate-100 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900" onClick={nextCategory}><TiArrowRight /></div>
       </div>
