@@ -57,7 +57,7 @@ const Home = () => {
         </div>
         <div className="flex justify-between items-center pb-5">
           <div className="flex gap-10 items-center">
-            <h3 className="text-2xl font-semibold">Flash Sales</h3>
+            <h3 className="text-xl md:text-2xl font-semibold">Flash Sales</h3>
           <div>Time & date</div>
           </div>
           <div className="flex items-center gap-2 ">
