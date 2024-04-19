@@ -34,11 +34,11 @@ export const productSlice = createSlice({
         increaseQty : (state,action)=>{
             const index = state.cartItem.findIndex((el)=>el._id === action.payload);
             let qty = state.cartItem[index].qty;
-            const qtyIncreament = ++qty
-            state.cartItem[index].qty = qtyIncreament
+            const qtyInc = ++qty
+            state.cartItem[index].qty = qtyInc
 
             const price = state.cartItem[index].price
-            const total = price *qtyIncreament
+            const total = price *qtyInc
 
             state.cartItem[index].total = total
         },
