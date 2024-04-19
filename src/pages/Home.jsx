@@ -12,10 +12,9 @@ import Categories from "../components/Categories";
 
 const Home = () => {
   const productData = useSelector((state) =>state.product.productList)
-  console.log(productData) 
+
 
   const flashSales = productData.filter(el => el.category === "electronics")
-  console.log(flashSales);
 
 
 
@@ -29,11 +28,6 @@ const Home = () => {
     slideProductRef.current.scrollLeft -= 200
   }
   
-
-  
-
- 
-
   return (
     <div className=' '>
       <div className="flex gap-5  w-full h-screen px-10 md:px-20 lg:px-20 bg-gradient-to-b from-slate-50 from-90%  justify-center items-center pt-10  ">
@@ -47,7 +41,7 @@ const Home = () => {
         </div>
         </div>
         <div className=" ">
-        <img src="/cart_home.jpg" alt="" className="hidden md:flex md:w-[20rem] lg:flex lg:w-[30rem] transform scale-x-[-1] mix-blend-multiply " />
+        <img src="/Side Image.svg" alt="" className="hidden md:flex md:w-[20rem] md:h-[30rem] lg:flex lg:w-[30rem] transform scale-x-[-1] mix-blend-multiply " />
         </div>
       </div>
       <div className="px-10 md:px-20">

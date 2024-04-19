@@ -70,7 +70,9 @@ const Categories = () => {
           )
         })
         :
-            loadingArrayFeature.map((el, i) => <CardFeature  key={i} loading="Loading..."/>)
+        <div className="min-h-[100px] flex  justify-center items-center">
+        <p>Loading...</p>
+      </div>
       }
      </div>
      <div className="relative">
@@ -81,7 +83,7 @@ const Categories = () => {
       </div>
      
       {
-      dataFilter[0] && dataFilter.map(el => {
+      dataFilter[0] ? dataFilter.map(el => {
         return(
           <CardFeature key={el._id}
           id={el._id}
@@ -92,6 +94,8 @@ const Categories = () => {
           />
         )
       })
+      :
+      loadingArrayFeature.map((el, i) => <CardFeature  key={i} loading="Loading..."/>)
       }
      </div>
      </div>

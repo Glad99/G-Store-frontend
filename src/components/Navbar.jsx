@@ -13,7 +13,7 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Contact us", path: "/contact" },
-  { name: "Product", path: "/product/660d5bbaa88ad19a0721946c" },
+  { name: "Product", path: "/product/660d5bbaa88ad19a072" },
 ];
 
 const Navbar = () => {
@@ -30,7 +30,9 @@ dispatch(logoutRedux())
 toast("Logout successfully!")
 }
 
-console.log(import.meta.env.VITE_ADMIN_EMAIL);
+// console.log(import.meta.env.VITE_ADMIN_EMAIL);
+  const cartItemNumber = useSelector((state)=>state.product.cartItem)
+
   return (
     <header className="flex fixed w-full h-16 md:px-4 shadow-md items-center justify-center bg-white z-50 ">
       <div className="flex items-center h-full gap-12 w-full justify-between p-5">
@@ -77,10 +79,11 @@ console.log(import.meta.env.VITE_ADMIN_EMAIL);
         <div className="flex gap-10 justify-center items-center">
         <IoSearchOutline className="md:hidden size-5 flex items-center justify-center" />
           <div className="flex items-center gap-[45px] size-7 relative">
-            <img src={cart_icon} alt="" />
-            <div className="size-[15px] bottom-4 left-4 flex justify-center items-center bg-red-500 rounded-3xl text-white absolute ">
-              0
+            <Link to={"cart"}><img src={cart_icon} alt="" />
+            <div className="size-[16px] bottom-4 left-4 flex justify-center items-center bg-red-500 rounded-3xl text-white absolute ">
+              {cartItemNumber.length}
             </div>
+            </Link>
           </div>
           <div className="text-slate-600" onClick={handleShowMenu}>
           <div className="cursor-pointer w-10 h-10 rounded-full overflow-hidden drop-shadow-md" >
