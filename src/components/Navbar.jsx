@@ -13,7 +13,6 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Contact us", path: "/contact" },
-  { name: "Product", path: "/product/660d5bbaa88ad19a072" },
 ];
 
 const Navbar = () => {
@@ -92,7 +91,7 @@ toast("Logout successfully!")
           {showMenu && (
             <div className="absolute right-2 bg-white py-2 shadow drop-shadow-md flex flex-col min-w-[120px] text-center">
               {
-                userData.email === import.meta.env.VITE_ADMIN_EMAIL && <Link to={"newproduct"} className="whitespace-nowrap cursor-pointer px-2">New Product</Link>
+                userData.email === import.meta.env.VITE_ADMIN_EMAIL && <Link to={"dashboard"} className="whitespace-nowrap cursor-pointer px-2">Dashboard</Link>
               }
               
               {userData.image ? <p className="cursor-pointer text-white px-2 mb-2 bg-red-500 text-[15px] font-[500]" onClick={handleLogout}>Logout [{userData.name}]</p> : (<Link to={"login"} className="whitespace-nowrap cursor-pointer px-2 text-[gray] text-[15px] font-[500] ">Login</Link>

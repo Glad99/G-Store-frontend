@@ -14,6 +14,7 @@ import {setDataProduct} from './redux/productSlice'
 import { useDispatch, useSelector } from 'react-redux';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
+import Dashboard from './pages/Dashboard';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         <Route path='/signup' element={<SignUp/>}
         ></Route>
         <Route path='/login' element={<LogIn/>}></Route>
+        <Route path='/dashboard' element={<Dashboard/>}></Route>
         <Route path='/newproduct' element={<NewProduct/>}></Route>
         <Route path='/product/:productId' element={<ProductDetails/>}></Route>
         <Route path='/cart' element={<Cart/>}></Route>

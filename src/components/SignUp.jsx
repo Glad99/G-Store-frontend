@@ -54,8 +54,8 @@ const SignUp = () => {
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
-    const {name, email, password, confirmPassword} = data
-    if(name && email && password && confirmPassword){
+    const {image, name, email, password, confirmPassword} = data
+    if(image && name && email && password && confirmPassword){
     if(password === confirmPassword){
       const fetchData = await fetch(`${import.meta.env.VITE_SERVER_DOMIN}/signup`, {
         method : "POST",
