@@ -8,13 +8,14 @@ import About from './components/About';
 import SignUp from './components/SignUp';
 import LogIn from './components/LogIn';
 import toast, { Toaster } from 'react-hot-toast';
-import NewProduct from './pages/NewProduct';
+import NewProduct from './pages/Admin Panel/NewProduct';
 import { useEffect } from 'react';
 import {setDataProduct} from './redux/productSlice'
 import { useDispatch, useSelector } from 'react-redux';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/Admin Panel/Dashboard';
+import ProductLists from './pages/Admin Panel/ProductLists';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route path='/login' element={<LogIn/>}></Route>
         <Route path='/dashboard' element={<Dashboard/>}></Route>
         <Route path='/newproduct' element={<NewProduct/>}></Route>
+        <Route path='/productlist' element={<ProductLists/>}></Route>
         <Route path='/product/:productId' element={<ProductDetails/>}></Route>
         <Route path='/cart' element={<Cart/>}></Route>
       </Routes>

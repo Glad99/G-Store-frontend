@@ -9,12 +9,12 @@ import { PiBowlFoodLight } from "react-icons/pi";
 import { RiProductHuntLine } from "react-icons/ri";
 
 
-const FilterProduct = ({category, onClick}) => {
+const FilterProduct = ({category, onClick, isActive}) => {
   return (
     <div onClick={onClick}>
         <div className="flex gap-5 ">
-        <div className=" flex flex-col p-5 bg-white text-slate-700 hover:shadow-lg border border-slate-300 rounded cursor-pointer justify-center items-center gap-2 hover:bg-[#d96846] hover:text-white min-w-[130px] whitespace-nowrap overflow-hidden">
-        <RiProductHuntLine className=" text-3xl" />
+        <div className={`flex flex-col p-5 bg-white text-slate-700 hover:shadow-lg border border-slate-300 rounded cursor-pointer justify-center items-center gap-2 hover:bg-[#d96846] hover:text-white min-w-[130px] whitespace-nowrap overflow-hidden">
+        <RiProductHuntLine className=" text-3xl ${isActive ? "bg-[#d96846] text-white" : "bg-white"}`}/>
         <p className="text-sm font-semibold w-[5rem] flex items-center justify-center capitalize">{category}</p>
         </div>
         {/* <div className=" flex flex-col p-5 bg-white text-slate-700 hover:shadow-lg border border-slate-300 rounded cursor-pointer justify-center items-center gap-2 hover:bg-[#d96846] hover:text-white min-w-[130px] whitespace-nowrap overflow-hidden ">

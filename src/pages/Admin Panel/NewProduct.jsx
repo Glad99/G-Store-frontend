@@ -1,5 +1,5 @@
 import { BsCloudUpload } from "react-icons/bs";
-import { ImagetoBase64 } from "../utility/ImagetoBase64";
+import { ImagetoBase64 } from "../../utility/ImagetoBase64";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";

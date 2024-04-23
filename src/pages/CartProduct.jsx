@@ -17,7 +17,7 @@ const CartProduct = ({id,name,image,category,qty,total, price}) => {
         <AiFillDelete /></div>
         </div>
         <p className=" font-medium text-slate-500 capitalize">{category}</p>
-        <p className=" font-bold text-slate-500">{price}</p>
+        <p className=" font-bold text-slate-500"><span>₦</span>{price}</p>
         <div>
           <div className="flex gap-3">
         <button className="bg-slate-300 text-white py-1 mt-2 p-1  rounded hover:bg-slate-400"onClick={()=>dispatch(increaseQty(id))}><FaPlus /></button>
@@ -26,7 +26,7 @@ const CartProduct = ({id,name,image,category,qty,total, price}) => {
           </div>
           <div className="flex items-center gap-2 font-bold ">
             <p>Total:</p>
-            <p>{total}</p>
+            <p><span>₦</span>{total}</p>
           </div>
         </div>
         </div>

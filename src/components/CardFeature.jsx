@@ -24,7 +24,7 @@ const CardFeature = ({image,name,price, loading,category, id}) => {
             <img src={image} className='h-[11rem]'/>
         </div>
         <h3 className=" font-semiblod text-slate-600 capitalize text-lg mt-4 whitespace-nowrap overflow-hidden ">{name}</h3>
-        <p className=" font-bold text-slate-500">{price}</p>
+        <p className=" font-bold text-slate-500"><span>₦</span>{price}</p>
         </Link>
         <button className="bg-slate-950 text-white py-1 mt-3 w-full mb-3 rounded hover:bg-slate-800" onClick={handleAddToCartProduct}>Add To Cart</button></> 
         :
