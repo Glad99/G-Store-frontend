@@ -9,6 +9,7 @@ import FilterProduct from "../components/FilterProduct";
 
 import AllProduct from "../components/AllProduct";
 import Categories from "../components/Categories";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const productData = useSelector((state) =>state.product.productList)
@@ -84,40 +85,27 @@ const Home = () => {
       </div>
       <Categories/>
       <AllProduct/>
-      {/* <div className="px-20">
-        <div className="flex gap-2 items-center py-5">
-          <div className="w-3 h-6 bg-[#d96846] rounded-sm"></div>
-          <p className="text-[#d96846] font-semibold">This Month</p>
-        </div>
-        <div className="flex justify-between items-center pb-3">
-        <h3 className="text-2xl font-semibold">Best Selling Products</h3>
-          <div className="">Arrow react icon</div>
+      <div>
+        <div>
+          <p>delivery van</p>
+          <h3>FREE AND FAST DELIVERY</h3>
+          <p>Free delivery for all orders over 140</p>
         </div>
         <div>
-          <p>like button, image, price, rating</p>
-        </div>
-        <div className="flex justify-center items-center">
-          <button className="bg-[#d96846] text-white text-sm px-6 py-2 rounded-sm mb-8 mt-5">View all Products</button>
-        </div>
-        <hr className="text-slate-800 font-medium mt-5 mb-5 w-auto" />
-      </div> */}
-      {/* <div className="px-20">
-        <div className="flex gap-2 items-center py-5">
-          <div className="w-3 h-6 bg-[#d96846] rounded-sm"></div>
-          <p className="text-[#d96846] font-semibold">This Month</p>
-        </div>
-        <div className="flex justify-between items-center pb-3">
-        <h3 className="text-2xl font-semibold">Explore Our Products</h3>
-          <div className="">Arrow react icon</div>
+          <p>ear pod</p>
+          <h3>24/7 CUSTOMER SERVICE</h3>
+          <p>Friendly 24/7 Customer Support</p>
         </div>
         <div>
-          <p>like button, image, price, rating</p>
+          <p>badge</p>
+          <h3>MONEY BACK GUARANTEE</h3>
+          <p>We return money within 30 days</p>
         </div>
-        <div className="flex justify-center items-center">
-          <button className="bg-[#d96846] text-white text-sm px-6 py-2 rounded-sm mb-8 mt-5">View all Products</button>
-        </div>
-        <hr className="text-slate-800 font-medium mt-5 mb-5 w-auto" />
-      </div> */}
+      </div>
+      <div>
+        <p>arrow up to home page</p>
+      </div>
+      <Footer/>
     </div>
   )
 }
