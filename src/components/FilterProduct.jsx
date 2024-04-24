@@ -13,8 +13,8 @@ const FilterProduct = ({category, onClick, isActive}) => {
   return (
     <div onClick={onClick}>
         <div className="flex gap-5 ">
-        <div className={`flex flex-col p-5 bg-white text-slate-700 hover:shadow-lg border border-slate-300 rounded cursor-pointer justify-center items-center gap-2 hover:bg-[#d96846] hover:text-white min-w-[130px] whitespace-nowrap overflow-hidden">
-        <RiProductHuntLine className=" text-3xl ${isActive ? "bg-[#d96846] text-white" : "bg-white"}`}/>
+        <div className={`flex flex-col p-5 bg-white text-slate-700 hover:shadow-lg border border-slate-300 rounded cursor-pointer justify-center items-center gap-2 hover:bg-[rgb(238,151,124)] hover:text-white min-w-[130px] whitespace-nowrap overflow-hidden ${isActive ? "bg-[rgb(217,104,70)] text-white" : "bg-white"}`}>
+        <RiProductHuntLine className=" text-3xl" />
         <p className="text-sm font-semibold w-[5rem] flex items-center justify-center capitalize">{category}</p>
         </div>
         {/* <div className=" flex flex-col p-5 bg-white text-slate-700 hover:shadow-lg border border-slate-300 rounded cursor-pointer justify-center items-center gap-2 hover:bg-[#d96846] hover:text-white min-w-[130px] whitespace-nowrap overflow-hidden ">

@@ -1,5 +1,7 @@
 import {useSelector} from 'react-redux'
 import CartProduct from './CartProduct';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import PayPalPayment from '../components/PayPalPayment';
 
 
 const Cart = () => {
@@ -37,6 +39,7 @@ const Cart = () => {
                 </div>
 
             {/* total cart item */}
+            <div className='w-full'>
             <div className='w-full max-w-md bg-slate-500'>
                 <h2>Summary</h2>
                 <div className='flex w-full py-2 text-lg border-b '>
@@ -48,6 +51,8 @@ const Cart = () => {
                     <p className='ml-auto w-32 font-bold'><span>₦</span>{totalPrice}</p>
                 </div>
                 <button className='bg-[#d96846] text-white py-2 w-full'>Payment</button>
+            </div>
+            <PayPalPayment/>
             </div>
             </div>
         </div>

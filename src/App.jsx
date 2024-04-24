@@ -16,6 +16,7 @@ import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import Dashboard from './pages/Admin Panel/Dashboard';
 import ProductLists from './pages/Admin Panel/ProductLists';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 
 function App() {
@@ -32,9 +33,16 @@ function App() {
     })()
   }, [])
 
+  const initialOptions = {
+    clientId: "AWWimJ8SBp_GJRbqaGvATeXFGcwyft8HrfdqCXGivMSdEueldRheXos1g9kPQyHx4KZBQdG8s9PP3Te0",
+    currency: "USD",
+    intent: "capture",
+};
+
   console.log(productData);
   return (
     <div>
+      <PayPalScriptProvider options={initialOptions}>
       <Toaster />
       <Navbar/>
       <Routes>
@@ -50,6 +58,7 @@ function App() {
         <Route path='/product/:productId' element={<ProductDetails/>}></Route>
         <Route path='/cart' element={<Cart/>}></Route>
       </Routes>
+      </PayPalScriptProvider>
     </div>
   );
 }

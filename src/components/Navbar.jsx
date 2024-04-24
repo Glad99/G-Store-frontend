@@ -42,7 +42,7 @@ toast("Logout successfully!")
           <label className="form-control">
             <select className="select border-none">
               <option value={"other"}>Category</option>
-              <option value={"women"}>Women's Fashion</option>
+              <option value={"women"}><Link to={"women"}> Women's Fashion</Link></option>
               <option value={"men"}>Men's Fashion</option>
               <option value={"electronics"}>Electronics</option>
               <option value={"homes"}>Homes & Lifestyle</option>

@@ -39,7 +39,7 @@ const Categories = () => {
    }, [productData])
  
    const handleFilterProduct = (category)=>{
-    setDataFilter(category)
+    setFilterby(category)
      const filter = productData.filter(el=> el.category.toLowerCase() === category.toLowerCase())
      setDataFilter(()=>{
        return[...filter]
@@ -57,7 +57,7 @@ const Categories = () => {
     <div className="flex justify-between items-center">
     <h3 className="text-2xl font-semibold">Browse By Category</h3>
       <div className="">
-      <div className="flex items-center gap-2 ">
+      <div className="flex items-center gap-2 lg:hidden ">
       <div className="bg-slate-100 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900" onClick={prevCategory}><TiArrowLeft/></div>
         <div className="bg-slate-100 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900" onClick={nextCategory}><TiArrowRight /></div>
       </div>
