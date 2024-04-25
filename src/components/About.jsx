@@ -1,5 +1,6 @@
 import React from 'react'
 import Footer from './Footer'
+import Delivery from './Delivery'
 
 const About = () => {
   return (
@@ -14,7 +15,7 @@ const About = () => {
       </div>
       <div>no of users</div>
       <div>Founder, manager, product designer etc</div>
-      <Footer/>
+      <Delivery/>
     </div>
   )
 }

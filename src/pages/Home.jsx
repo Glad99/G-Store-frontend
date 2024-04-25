@@ -10,6 +10,7 @@ import FilterProduct from "../components/FilterProduct";
 import AllProduct from "../components/AllProduct";
 import Categories from "../components/Categories";
 import Footer from "../components/Footer";
+import Delivery from "../components/Delivery";
 
 const Home = () => {
   const productData = useSelector((state) =>state.product.productList)
@@ -85,26 +86,10 @@ const Home = () => {
       </div>
       <Categories/>
       <AllProduct/>
+      <Delivery/>
       <div>
-        <div>
-          <p>delivery van</p>
-          <h3>FREE AND FAST DELIVERY</h3>
-          <p>Free delivery for all orders over 140</p>
-        </div>
-        <div>
-          <p>ear pod</p>
-          <h3>24/7 CUSTOMER SERVICE</h3>
-          <p>Friendly 24/7 Customer Support</p>
-        </div>
-        <div>
-          <p>badge</p>
-          <h3>MONEY BACK GUARANTEE</h3>
-          <p>We return money within 30 days</p>
-        </div>
-      </div>
-      <div>
-        <p>arrow up to home page</p>
-      </div>
+    <p>arrow up to home page</p>
+  </div>
       <Footer/>
     </div>
   )

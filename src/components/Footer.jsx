@@ -2,7 +2,8 @@
 
 const Footer = () => {
   return (
-    <div>
+    <div className="bg-black text-white p-5">
+        <div className="flex justify-between">
         <div>
             <h3>Logo</h3>
             <p>Subscribe</p>
@@ -35,7 +36,7 @@ const Footer = () => {
         <div>
             <h3>Download App</h3>
             <p>Save 3 with App New User Only</p>
-            <div>
+            <div className="flex gap-2">
                 <img src="" alt="" />
                 <div>
                     <img src="" alt="" />
@@ -53,8 +54,10 @@ const Footer = () => {
                 <p>facebook, twitter, insta, linkdin icon</p>
             </div>
         </div>
+        </div>
         <hr />
-        <p>Copyright G-Store 2024. All right researved</p>
+        <p className="text-center pt-3">Copyright G-Store 2024. All right researved</p>
+        
     </div>
   )
 }

@@ -1,4 +1,5 @@
-import { FaMinus, FaPlus } from "react-icons/fa6";
+import { FaChevronDown, FaChevronRight, FaChevronUp } from "react-icons/fa6";
+import { FaChevronLeft } from "react-icons/fa6";
 import { AiFillDelete } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { deleteCartItem, increaseQty, decreaseQty } from "../redux/productSlice";
@@ -6,30 +7,28 @@ import { deleteCartItem, increaseQty, decreaseQty } from "../redux/productSlice"
 const CartProduct = ({id,name,image,category,qty,total, price}) => {
   const dispatch = useDispatch()
   return (
-    <div className='bg-slate-200 p-2 flex gap-4 rounded border border-slate-300'>
-      <div className='bg-white p-3 rounded overflow-hidden '>
+    <div className='p-2 flex gap-4 rounded border border-slate-300 md:justify-between md:px-[2rem] items-center md:mr-20 md:ml-10 mb-3'>
+      <div className="flex justify-center items-center gap-2">
+      <div className='bg-white py-3 rounded overflow-hidden '>
         <img src={image} alt={name} className='h-28 w-24 object-cover '/>
       </div>
-      <div className="flex flex-col gap-1 w-[15rem]  ">
-      <div className="flex justify-between">
-        <h3 className=" font-semiblod text-slate-600 capitalize text-lg md:text-xl mt-4 whitespace-nowrap overflow-hidden ">{name}</h3>
-        <div className="cursor-pointer text-slate-500 hover:text-red-500 " onClick={()=>dispatch(deleteCartItem(id))}>
-        <AiFillDelete /></div>
-        </div>
-        <p className=" font-medium text-slate-500 capitalize">{category}</p>
-        <p className=" font-bold text-slate-500"><span>₦</span>{price}</p>
-        <div>
-          <div className="flex gap-3">
-        <button className="bg-slate-300 text-white py-1 mt-2 p-1  rounded hover:bg-slate-400"onClick={()=>dispatch(increaseQty(id))}><FaPlus /></button>
-        <p className="font-semibold p-1">{qty}</p>
-        <button onClick={()=>dispatch(decreaseQty(id))} className="bg-slate-300 text-white py-1 mt-2 rounded hover:bg-slate-400 p-1"><FaMinus /></button>
+      <h3 className=" font-semiblod text-slate-600 capitalize text-md md:text-xl w-28 overflow-hidden">{name}</h3></div>
+      <div className="md:w-[55rem] flex md:justify-between items-center pl-[5rem]">
+        <p className=" font-bold text-slate-500 -ml-20"><span>₦</span>{price}</p>
+        <div className="flex border border-black p-2 gap-5 -ml-20 rounded">
+        <p className="font-semibold ">{qty}</p>
+        <div className="flex flex-col gap-1">
+        <button className=" hover:text-red-300 text-sm"onClick={()=>dispatch(increaseQty(id))}><FaChevronUp /></button>
+        <button onClick={()=>dispatch(decreaseQty(id))} className="hover:text-red-300 text-sm"><FaChevronDown /></button>
           </div>
-          <div className="flex items-center gap-2 font-bold ">
-            <p>Total:</p>
+        </div>
+          
+          <div className="flex items-center gap-2 font-bold -ml-20">
             <p><span>₦</span>{total}</p>
           </div>
-        </div>
-        </div>
+          <div className="cursor-pointer text-slate-500 hover:text-red-500 " onClick={()=>dispatch(deleteCartItem(id))}>
+        <AiFillDelete /></div>
+    </div>
     </div>
   )
 }
