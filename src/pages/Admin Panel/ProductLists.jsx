@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux"
 import { RiDeleteBin6Line } from "react-icons/ri";
+import Footer from "../../components/Footer";
 
 
 
@@ -32,6 +33,7 @@ const ProductLists = () => {
       }
         </div>
         </div>
+        <Footer/>
     </div>
   )
 }

@@ -3,6 +3,7 @@ import { FaChevronLeft } from "react-icons/fa6";
 import { AiFillDelete } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { deleteCartItem, increaseQty, decreaseQty } from "../redux/productSlice";
+import Footer from "../components/Footer";
 
 const CartProduct = ({id,name,image,category,qty,total, price}) => {
   const dispatch = useDispatch()
@@ -14,7 +15,7 @@ const CartProduct = ({id,name,image,category,qty,total, price}) => {
       </div>
       <h3 className=" font-semiblod text-slate-600 capitalize text-md md:text-xl w-28 overflow-hidden">{name}</h3></div>
       <div className="md:w-[55rem] flex md:justify-between items-center pl-[5rem]">
-        <p className=" font-bold text-slate-500 -ml-20"><span>₦</span>{price}</p>
+        <p className=" font-bold text-slate-500 -ml-36 "><span>₦</span>{price}</p>
         <div className="flex border border-black p-2 gap-5 -ml-20 rounded">
         <p className="font-semibold ">{qty}</p>
         <div className="flex flex-col gap-1">

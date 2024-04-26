@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginRedux } from "../redux/userSlice";
+import Footer from "./Footer";
 
 
 const LogIn = () => {
@@ -110,6 +111,7 @@ const LogIn = () => {
     </div>
   </div>
 </div>
+<Footer/>
     </div>
   )
 }

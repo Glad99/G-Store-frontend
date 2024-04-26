@@ -2,7 +2,7 @@ import {Link} from "react-router-dom"
 import { MdOutlineLocalOffer } from "react-icons/md";
 import CardFeature from "../components/CardFeature";
 import {useSelector} from "react-redux"
-import { TiArrowLeft } from "react-icons/ti";
+import { TiArrowLeft, TiArrowUp } from "react-icons/ti";
 import { TiArrowRight } from "react-icons/ti";
 import { useEffect, useRef, useState } from "react";
 import FilterProduct from "../components/FilterProduct";
@@ -11,8 +11,27 @@ import AllProduct from "../components/AllProduct";
 import Categories from "../components/Categories";
 import Footer from "../components/Footer";
 import Delivery from "../components/Delivery";
+import gsap from "gsap"
+
+
 
 const Home = () => {
+  let timeline = gsap.timeline()
+  let para = useRef(null)
+  let cartImg = useRef(null)
+  useEffect(()=>{
+    timeline.from(para, {
+      delay: .3,
+      duration: 1,
+      opacity: 0,
+      y: 100
+    })
+    timeline.from(cartImg, {
+      duration: 1,
+      opacity: 0,
+      y: 100
+    }, '-=.5')
+  })
   const productData = useSelector((state) =>state.product.productList)
 
 
@@ -33,16 +52,16 @@ const Home = () => {
   return (
     <div className=' '>
       <div className="flex gap-5  w-full h-screen px-10 md:px-20 lg:px-20 bg-gradient-to-b from-slate-50 from-90%  justify-center items-center pt-10  ">
-        <div className="relative container  ">
+        <div className="relative container para" ref={el => para = el}>
           <h2 className="text-2xl lg:text-4xl font-bold max-w-[35rem] ">Explore High-Quality <span className="text-[#d96846] ">Products Flawless</span> Shopping Experience</h2>
           <p className="text-gray-900 tracking-wide my-10 max-w-[33rem] text-l font-medium  ">Welcome to G-Store, your go-to for premium products. Dive into our curated selection of high-quality items across categories like electronics and fashion. Enjoy easy shopping with our intuitive interface and secure checkout. Elevate your online experience with us!</p>
           <div className="flex gap-5">
-          <Link to={'/'} className="bg-slate-800   text-white rounded-full p-2 font-medium px-5 flex items-center whitespace-nowrap">Shop Now</Link>
+          <Link to={'/shop'} className="bg-slate-800   text-white rounded-full p-2 font-medium px-5 flex items-center whitespace-nowrap">Shop Now</Link>
           <Link to={'/'} className="bg-slate-200 text-gray-700 font-medium  rounded-full pl-5 flex items-center gap-5 ">Offers <MdOutlineLocalOffer className="text-xl bg-[#d96846] rounded-full h-12 w-12 p-3 rotate-90 border border-dashed transition-all duration-500 group-hover:rotate-45"/></Link>
 
         </div>
         </div>
-        <div className=" ">
+        <div className=" " ref={el => cartImg = el}>
         <img src="/Side Image.svg" alt="" className="hidden md:flex md:w-[20rem] md:h-[30rem] lg:flex lg:w-[30rem] transform scale-x-[-1] mix-blend-multiply " />
         </div>
       </div>
@@ -87,9 +106,10 @@ const Home = () => {
       <Categories/>
       <AllProduct/>
       <Delivery/>
-      <div>
-    <p>arrow up to home page</p>
+      <div className="flex justify-end m-2 mr-10 ">
+      <Link to={"/"} className="p-1 bg-slate-300 rounded-xl text-lg" ><TiArrowUp/></Link>
   </div>
+  
       <Footer/>
     </div>
   )

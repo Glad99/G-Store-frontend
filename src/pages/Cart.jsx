@@ -43,8 +43,8 @@ const Cart = () => {
             </div>
 
             {/* total cart item */}
-            <div className='w-full flex flex-col m-10 mr-[5rem] gap-3'>
-                <div className='md:flex md:justify-between gap-2'>
+            <div className='w-full flex flex-col m-10 gap-3'>
+                <div className='md:flex md:justify-between gap-2 md:mr-[10rem]'>
             <div className='flex gap-2 h-[3rem] mb-5 mr-[5rem] md:mr-0'>
                 <input type="text" placeholder='Coupon Code' className='border rounded p-2' />
                 <button className='bg-[#d96846] text-white py-2 px-2 md:px-5 w-full hover:bg-[rgb(238,151,124)] rounded'>Apply Coupon</button>

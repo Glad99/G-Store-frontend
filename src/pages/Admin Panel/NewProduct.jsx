@@ -3,6 +3,7 @@ import { ImagetoBase64 } from "../../utility/ImagetoBase64";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 const NewProduct = () => {
   const [data, setData]= useState({
@@ -106,6 +107,7 @@ const NewProduct = () => {
             <button className="bg-[#d96846] hover:bg-[#ec4b1a] text-white text-lg font-medium my-2 drop-shadow">Save</button>
             <Link to={"/dashboard"} className=" hover:bg-[#ec4b1a] hover:text-white text-red-500  text-lg font-medium my-2 drop-shadow text-center">Exit</Link>
       </form>
+      <Footer/>
     </div>
   )
 }

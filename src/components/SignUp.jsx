@@ -5,6 +5,7 @@ import { BiShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
 import { ImagetoBase64 } from "../utility/ImagetoBase64";
 import { toast } from "react-hot-toast";
+import Footer from "./Footer";
 
 const SignUp = () => {
   
@@ -83,7 +84,7 @@ const SignUp = () => {
     }
   }
   return (
-    <div className='pt-16 w-screen'>
+    <div className='pt-12 w-screen'>
       <div className="hero min-h-screen bg-base-200 w-screen">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left lg:text-nowrap">
@@ -144,6 +145,7 @@ const SignUp = () => {
     </div>
   </div>
 </div>
+<Footer/>
     </div>
   )
 }
