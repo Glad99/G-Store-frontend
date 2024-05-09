@@ -53,17 +53,17 @@ toast("Logout successfully!")
             </select>
           </label>
         </div>
-        <ul className="hidden items-center gap-4 md:gap-6 lg:gap-12  text-[gray] text-[15px] font-[500] lg:flex">
+        <ul className="hidden items-center gap-4 md:gap-6 lg:gap-12  text-[gray] text-[15px] font-[500] lg:flex ]">
           {navItems.map((nav, idx) => (
-            <li key={idx}>
+            <li key={idx} className="hover:text-[#d96846]">
               <Link
-                to={nav.path}
+                to={nav.path} 
               >
                 {nav.name}
               </Link>
             </li>
           ))}
-          <li><Link to={"signup"}>
+          <li className="hover:text-[#d96846]"><Link to={"signup"}>
                 Sign Up
               </Link></li>
         </ul>

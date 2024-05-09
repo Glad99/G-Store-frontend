@@ -19,19 +19,19 @@ const Home = () => {
   let timeline = gsap.timeline()
   let para = useRef(null)
   let cartImg = useRef(null)
-  useEffect(()=>{
-    timeline.from(para, {
-      delay: .3,
-      duration: 1,
-      opacity: 0,
-      y: 100
-    })
-    timeline.from(cartImg, {
-      duration: 1,
-      opacity: 0,
-      y: 100
-    }, '-=.5')
-  })
+  // useEffect(()=>{
+  //   timeline.fromTo(para, {
+  //     delay: .3,
+  //     duration: 1,
+  //     opacity: 0,
+  //     y: 100
+  //   })
+  //   timeline.from(cartImg, {
+  //     duration: 1,
+  //     opacity: 0,
+  //     y: 100
+  //   }, '-=.5')
+  // })
   const productData = useSelector((state) =>state.product.productList)
 
 
@@ -73,7 +73,7 @@ const Home = () => {
         <div className="flex justify-between items-center pb-5">
           <div className="flex gap-10 items-center">
             <h3 className="text-2xl font-semibold">Flash Sales</h3>
-          <div>Time & date</div>
+          {/* <div>Time & date</div> */}
           </div>
           <div className="flex items-center gap-2 ">
           <div className="bg-slate-100 p-2 rounded-full hover:bg-slate-200 cursor-pointer text-slate-900" onClick={prevProduct}><TiArrowLeft/></div>
