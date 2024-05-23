@@ -29,7 +29,7 @@ function App() {
 
   useEffect(()=>{
     (async()=>{
-      const res = await fetch(`${import.meta.env.VITE_SERVER_DOMIN.split(',')}/product`)
+      const res = await fetch(`${import.meta.env.VITE_SERVER_DOMIN}/product`)
       const resData = await res.json()
       console.log(resData);
       dispatch(setDataProduct(resData))
